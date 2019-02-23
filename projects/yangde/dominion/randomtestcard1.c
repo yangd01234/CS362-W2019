@@ -1,32 +1,70 @@
 /*Derek Yang
- * Random Testing Quiz
- *
- *
+ * Random Testing Card 1
+ * Template taken from Random Testing Quiz
+ * Random test for the: Village Card
+ * Add +1 card, +2 actions, and discard 1 card.
+ * Method under test: village_card
+ * Dependencies: int currentPlayer, struct gameState *state, int handPos
+ * 
  */
 
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
 #include<time.h>
+#include "dominion.h"
+#include "dominion_helpers.h"
+#include <assert.h>
+#include "rngs.h"
 
-char inputChar()
-{
-    return ((char)(rand() % (94)) + 32);
+/*
+int village_card(int currentPlayer, struct gameState *state, int handPos){
+    //+1 Card
+    drawCard(currentPlayer, state);
+
+    //+2 Actions
+
+    //BUG + 10 actions, making this card super over poweed
+    state->numActions = state->numActions + 10;
+
+    //discard played card from hand
+    //BUG no longer have to discard played card from hand due to lazy commenting
+    //discardCard(handPos, currentPlayer, state, 0);
+    return 0;
 }
-
-char *inputString()
-{
-    int i;
-    char str[5];
-    char* test_str = str;
-    for (i = 0; i < 5; i++)
-    {
-        str[i] = (char)rand() % (16) + 101;
+*/
+// custom asset function
+void ASSERT(int a, int b){
+    if (a == b) {
+        printf("PASS:  ");
+    } else {
+        printf("FAIL:  ");
     }
-    //set null terminating value
-    str[5] = '\0';
-    return test_str;
 }
+
+
+
+int villageTest():
+    // test a random interval of times
+    // test a random number of cards in hand and deck
+    // review the before and after states for Add +1 card, +2 actions, and discard 1 card, 
+
+    // create game state and start a loop of random from 10000 to 10000
+    // first test to 10000
+    int numPlayers = 2; //turn to random
+    int seed = 1000;    //turn to random
+
+    struct gameState G, testG;
+    int k[10] = {adventurer, council_room, feast, gardens, mine,
+     remodel, smithy, village, baron, great_hall};
+
+    initializeGame(numPlayers, k, seed, &G);
+
+    memcpy(&testG, &G, sizeof(struct gameState));
+    // 
+    // return number of failed tests
+    // return percentage of failed tests
+    return 1;
 
 
 void testme()
@@ -65,7 +103,9 @@ void testme()
 
 int main(int argc, char *argv[])
 {
+    
+
     srand(time(NULL));
-    testme();
+    villageTest();
     return 0;
 }
