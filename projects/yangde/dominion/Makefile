@@ -52,7 +52,7 @@ randomtestresults: clean testRandom
 	gcov -c dominion.c >> randomtestresults.out
 	cat dominion.c.gcov >> randomtestresults.out
 
-randomtestcard1: clean testRandom
+randomtestcard1: testRandom
 	./randomtestcard1 > randomtestcard1.out
 	gcov -b -f dominion.c >> randomtestcard1.out
 	cat dominion.c.gcov >> randomtestcard1.out
@@ -63,7 +63,7 @@ randomtestcard1: clean testRandom
 	gcov -c dominion.c >> randomtestcard1.out
 	cat dominion.c.gcov >> randomtestcard1.out
 
-randomtestcard2: clean testRandom
+randomtestcard2: testRandom
 	./randomtestcard2 > randomtestcard2.out
 	gcov -b -f dominion.c >> randomtestcard2.out
 	cat dominion.c.gcov >> randomtestcard2.out
@@ -74,7 +74,7 @@ randomtestcard2: clean testRandom
 	gcov -c dominion.c >> randomtestcard2.out
 	cat dominion.c.gcov >> randomtestcard2.out
 
-randomtestadventurer: clean testRandom
+randomtestadventurer: testRandom
 	./randomtestadventurer > randomtestadventurer.out
 	gcov -b -f dominion.c >> randomtestadventurer.out
 	cat dominion.c.gcov >> randomtestadventurer.out
