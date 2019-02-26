@@ -1,12 +1,12 @@
 /* Author: Derek Yang
- * Random Testing Card 1
+ * Random Testing Card 2
  * Template taken from Random Testing Quiz
- * Random test for the: Village Card
- * Add +1 card, +2 actions, and discard 1 card.
- * Method under test: village_card
+ * Random test for the: Smithy Card
+ * Add +3 card and discard 1 card.
+ * Method under test: smithy_card
  * Dependencies: int currentPlayer, struct gameState *state, int handPos
- * 
  * Random Testing Guidelines:
+ *
  * 1.  identify method under test
  * 2.  identify dependencies (params)
  * 3.  write code to generate random inputs for method
@@ -25,8 +25,8 @@
 #include <assert.h>
 #include "rngs.h"
 
-#define TESTFUNCTION "village_card()"
-#define TESTPARAMS "int currentPlayer, struct gameState *state, int handPos"
+#define TESTFUNCTION "smithy_card()"
+#define TESTPARAMS "int currentPlayer, struct gameState *state"
 
 /***********************************************
  * ASSERT(int a, int b)
@@ -41,15 +41,14 @@ void ASSERT(int a, int b){
 }
 
 /***********************************************
- * villageTest()
- * Random test for village_card() function
+ * smithyTest()
+ * Random test for smithy_card() function
  * Checks for:
- * +1 card to player hand
- * +2 actions
+ * +3 card to player hand
  * +1 discard after function call
  * Test Stopping Criteria: Success or 10,000 runs
  **********************************************/
-void villageTest() {
+void smithyTest() {
     srand(time(NULL));
     int numPlayers = 2;
     int currPlayer = 0;
@@ -87,32 +86,29 @@ void villageTest() {
         testG.handCount[0] = playerHandCount;
 
         // STEP 4: Invoke function
-        village_card(currPlayer, &testG, playerHandPos);
+        smithy_card(currPlayer, &testG, playerHandPos);
 
         // STEP 5: Check if stopping criteria met
-        if (testG.deckCount[0] == playerDeck-1) playerDeckRes++;
-        if (testG.handCount[0] == playerHandCount) playerHandCountRes++;
+        if (testG.deckCount[0] == playerDeck-3) playerDeckRes++;
+        if (testG.handCount[0] == playerHandCount+3) playerHandCountRes++;
         if (testG.discardCount[0] == playerDiscard+1) playerDiscardRes++;
-        if (testG.numActions == playerAction+2) playerActionRes++;
         currTest++;
     }
 
     // return test summary
     printf("Total number of tests ran: %d\n", currTest);
     ASSERT(playerDeckRes, numTests);
-    printf("Deck Count -1 success rate: %d out of %d\n",playerDeckRes, numTests);
+    printf("Deck Count -3 success rate: %d out of %d\n",playerDeckRes, numTests);
     ASSERT(playerHandCountRes, numTests);
-    printf("Hand Count unchanged success rate: %d out of %d%\n",playerHandCountRes, numTests);
+    printf("Hand Count +3 success rate: %d out of %d%\n",playerHandCountRes, numTests);
     ASSERT(playerDiscardRes, numTests);
     printf("Discard Count +1 success rate: %d out of %d%\n",playerDiscardRes, numTests);
-    ASSERT(playerActionRes, numTests);
-    printf("Action Count +2 success rate: %d out of %d%\n",playerActionRes, numTests);
     printf("\n >>>>> Testing complete %s <<<<<\n\n", TESTFUNCTION);
 }
 
 
 int main(int argc, char *argv[])
 {
-    villageTest();
+    smithyTest();
     return 0;
 }
