@@ -39,7 +39,7 @@ testRandom: dominion.o randomtestcard1.c randomtestcard2.c randomtestadventurer.
 	gcc -o randomtestcard2 -g  randomtestcard2.c dominion.o rngs.o $(CFLAGS)
 	gcc -o randomtestadventurer -g  randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
 
-randomtestresults: clean testRandom
+randomtestresults: testRandom
 	./randomtestcard1 > randomtestresults.out
 	./randomtestcard2 >> randomtestresults.out
 	./randomtestadventurer >> randomtestresults.out
