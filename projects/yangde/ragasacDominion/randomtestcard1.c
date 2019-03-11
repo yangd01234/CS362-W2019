@@ -55,6 +55,7 @@ void villageTest() {
     int currPlayer = 0;
     int seed = 1000;
     int numTests = 1000000;
+    int bonusTemp = 0;
     int currTest = 0;
     int playerDeck, playerHandPos, playerDiscard, playerAction, playerHandCount;
     int playerDeckRes, playerHandCountRes, playerDiscardRes, playerActionRes;
@@ -87,7 +88,8 @@ void villageTest() {
         testG.handCount[0] = playerHandCount;
 
         // STEP 4: Invoke function
-        village_card(currPlayer, &testG, playerHandPos);
+        cardEffect(village, 0, 0, 0, &testG, playerHandPos, &bonusTemp);
+        //village_card(currPlayer, &testG, playerHandPos);
 
         // STEP 5: Check if stopping criteria met
         if (testG.deckCount[0] == playerDeck-1) playerDeckRes++;

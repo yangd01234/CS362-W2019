@@ -110,7 +110,8 @@ void advenurerTest(enum CARD testCard ) {
         testG.deck[0][treasurePosTwo] == testCard;
 
         // STEP 4: Invoke function
-        adventurer_card(currPlayer, &testG);
+        adventurerEffect(&testG);
+        //adventurer_card(currPlayer, &testG);
 
         // STEP 5: Check if stopping criteria met
         // check if new deck count == old deck count - discard count

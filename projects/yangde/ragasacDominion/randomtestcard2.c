@@ -86,7 +86,8 @@ void smithyTest() {
         testG.handCount[0] = playerHandCount;
 
         // STEP 4: Invoke function
-        smithy_card(currPlayer, &testG, playerHandPos);
+        smithyEffect(&testG, playerHandPos);
+        //smithy_card(currPlayer, &testG, playerHandPos);
 
         // STEP 5: Check if stopping criteria met
         if (testG.deckCount[0] == playerDeck-3) playerDeckRes++;
