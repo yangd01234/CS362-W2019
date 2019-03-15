@@ -126,9 +126,9 @@ void advenurerTest(enum CARD testCard ) {
     // return test summary
     printf("Total number of tests ran: %d\n", currTest);
     ASSERT(playerDeckRes, numTests);
-    printf("Deck Count -3 success rate: %d out of %d\n",playerDeckRes, numTests);
+    printf("Deck Count -2 success rate: %d out of %d\n",playerDeckRes, numTests);
     ASSERT(playerHandCountRes, numTests);
-    printf("Hand Count +3 success rate: %d out of %d\n",playerHandCountRes, numTests);
+    printf("Hand Count +2 success rate: %d out of %d\n",playerHandCountRes, numTests);
     ASSERT(playerDiscardRes, numTests);
     printf("Discard Count +1 success rate: %d out of %d\n",playerDiscardRes, numTests);
     printf("\n >>>>> Testing complete %s <<<<<\n\n", TESTFUNCTION);
